@@ -1,0 +1,10 @@
+
+.odd-row {
+  background-color: #f9f9f9;
+}
+
+.mat-mdc-table {
+  table-layout: auto;
+  white-space: normal;
+  background-color: #ebebeb;
+}

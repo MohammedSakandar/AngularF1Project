@@ -1,0 +1,25 @@
+<!--<div class="dropdown">-->
+<!--  <input disabled type="text" placeholder="Select an option"  >-->
+<!--  <span class="arrow" (click)="toggleDropdown()" ></span>-->
+<!--  @if (showDropdown){-->
+<!--    <ul>-->
+<!--      @for (item of (f1Service.races$ | async); track item){-->
+<!--        <li (click)="selectOption(item)">{{item.raceName}}</li>-->
+<!--      }-->
+<!--    </ul>-->
+<!--  }-->
+
+<!--</div>-->
+
+<div class="dropdown">
+  <mat-form-field>
+    <mat-label>Choose Race</mat-label>
+ <mat-select [(value)]="f1Service.selectedRace" >
+   @for (item of (f1Service.races$ | async); track item){
+     <mat-option (click)="selectOption(item)" [value]="item.raceName">
+       {{ item.raceName }}
+     </mat-option>
+   }
+ </mat-select>
+  </mat-form-field>
+</div>

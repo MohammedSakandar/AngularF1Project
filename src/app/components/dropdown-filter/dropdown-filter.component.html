@@ -1,0 +1,26 @@
+<!--<div class="dropdown">-->
+<!--  <input disabled type="text"   placeholder="Select an option">-->
+<!--  <span class="arrow" (click)="toggleDropdown()"></span>-->
+<!--    @if (showDropdown){-->
+<!--      <ul>-->
+<!--      @for (item of (f1Service.seasons$ | async); track item){-->
+<!--        <li (click)="selectOption(item)">{{ item }}</li>-->
+<!--      }-->
+<!--      </ul>-->
+<!--    }-->
+
+<!--</div>-->
+
+<div class="dropdown">
+  <mat-form-field>
+    <mat-label>Choose Season</mat-label>
+    <mat-select [(ngModel)]="f1Service.selectedSeason" (click)="toggleDropdown()">
+      @for (item of (f1Service.seasons$ | async); track item){
+        <mat-option [value]="item" (click)="selectOption(item)">{{ item }}</mat-option>
+      }
+
+    </mat-select>
+  </mat-form-field>
+</div>
+
+

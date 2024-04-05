@@ -1,0 +1,19 @@
+<div class="podium">
+  @if ((f1Service.results$ | async); as Results){
+    @if(Results.MRData){
+      @for( driver of Results.MRData.RaceTable.Races; track driver.round){
+        @for (Result of driver.Results; track Result.Driver){
+          @if(!checkGreaterThanThree(Result.position)){
+            <div class="stand" [style.height.%]="getStandHeight(Result.position)" [style.background]="getStandColor(Result.position)">
+              <h2>{{ Result.position === '1' ? '1st Place' : (Result.position === '2' ? '2nd Place' : '3rd Place') }}</h2>
+              <p>{{ Result.Driver.givenName }} {{ Result.Driver.familyName }}</p>
+            </div>
+          }
+        }
+      }
+    }
+  }
+</div>
+
+
+

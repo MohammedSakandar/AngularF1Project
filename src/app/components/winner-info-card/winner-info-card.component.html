@@ -1,0 +1,22 @@
+  @if ((f1Service.results$ | async); as Results){
+    @if(Results.MRData){
+      @for( driver of Results.MRData.RaceTable.Races; track driver.round){
+        @for (Result of driver.Results; track Result.Driver){
+          @if(Result.position === '1'){
+            <mat-card-content class="winner-content">
+              <div>
+                <img [src]="wikiService.imageUrl$ | async" alt="Wikipedia Image">
+              </div>
+                    <p><strong>Name:</strong> {{ Result.Driver.givenName }} {{ Result.Driver.familyName }}</p>
+                    <p><strong>Date of Birth:</strong> {{ Result.Driver.dateOfBirth }}</p>
+                    <p><strong>Nationality:</strong> {{ Result.Driver.nationality }}</p>
+                  </mat-card-content>
+          }
+        }
+      }
+    }
+  }
+
+
+
+
